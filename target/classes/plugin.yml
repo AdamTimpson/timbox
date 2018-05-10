@@ -1,0 +1,9 @@
+--- 
+name: TimBox
+author: "<your IGN or name>"
+version: "0.0.1"
+main: com.adamtimpson.timbox.TimBox
+commands: 
+  bed: 
+    description: "Teleports the player to their bed."
+    usage: /<command>
