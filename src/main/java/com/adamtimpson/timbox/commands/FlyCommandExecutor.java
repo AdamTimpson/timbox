@@ -8,10 +8,10 @@ import org.bukkit.entity.Player;
 import com.adamtimpson.timbox.TimBox;
 import com.adamtimpson.timbox.utils.Utils;
 
-public class BedCommandExecutor implements CommandExecutor {
+public class FlyCommandExecutor implements CommandExecutor {
 	private final TimBox plugin;
 	
-	public BedCommandExecutor(TimBox plugin) {
+	public FlyCommandExecutor(TimBox plugin) {
 		this.plugin = plugin; 
 	}
 
@@ -20,13 +20,16 @@ public class BedCommandExecutor implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;
 		
-    	if (cmd.getName().equalsIgnoreCase("bed")) {
-    		try {    			
-				Utils.oldLocation = player.getLocation();
-				
-				Utils.sendMessage(player, "Teleporting you to your bed...");
-				 
-				player.teleport(player.getBedSpawnLocation());
+		if (cmd.getName().equalsIgnoreCase("fly")) {
+    		try {
+    			Utils.sendMessage(player, "Switching...");
+    		
+    			if (player.getName().equals("TimmyAdams")) {
+    				player.setFlying(!player.isFlying());    				
+    			} else { 
+    				Utils.sendMessage(player, "Sorry, you don't have permission to do that...");
+    			}
+    		
 				Utils.explode(player);
     		} catch (Exception e) {
     			Utils.sendMessage(player, "Sorry, couldn't do that...");

@@ -1,8 +1,5 @@
 package com.adamtimpson.timbox.commands;
 
-import org.bukkit.ChatColor;
-import org.bukkit.Effect;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -25,17 +22,13 @@ public class BackCommandExecutor implements CommandExecutor {
 		
 		if (cmd.getName().equalsIgnoreCase("back")) {
     		try {	
-				String input = "&6[TimBox]: &bSending you back...";
-        		String output = ChatColor.translateAlternateColorCodes('&', input);
+				Utils.sendMessage(player, "Sending you back...");
 				
-        		player.sendMessage(output);
 				player.teleport(Utils.oldLocation);
 				Utils.explode(player);
     		} catch (Exception e) {
-        		String input = "&6[TimBox]: &bSorry, couldn't go back...";
-        		String output = ChatColor.translateAlternateColorCodes('&', input);
-    			
-    			player.sendMessage(output);
+        		Utils.sendMessage(player, "Sorry, couldn't do that...");
+        		
     			this.plugin.getLogger().info("Something went wrong... " + e.getMessage());
     		}
     		

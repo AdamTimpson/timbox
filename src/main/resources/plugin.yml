@@ -11,3 +11,7 @@ commands:
   back:
     description: "Sends you back"
     usage: /<command>
+    
+  fly:
+    description: "Toggles flying"
+    usage: /<command>
