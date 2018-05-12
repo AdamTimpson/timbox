@@ -25,7 +25,7 @@ public class FlyCommandExecutor implements CommandExecutor {
     			Utils.sendMessage(player, "Switching...");
     		
     			if (player.getName().equals("TimmyAdams")) {
-    				player.setFlying(!player.isFlying());    				
+    				player.setAllowFlight(!player.getAllowFlight());
     			} else { 
     				Utils.sendMessage(player, "Sorry, you don't have permission to do that...");
     			}
