@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.adamtimpson.timbox.commands.BackCommandExecutor;
 import com.adamtimpson.timbox.commands.BedCommandExecutor;
 import com.adamtimpson.timbox.commands.FlyCommandExecutor;
+import com.adamtimpson.timbox.recipes.CustomRecipeLoader;
 
 
 public class TimBox extends JavaPlugin {
@@ -17,6 +18,8 @@ public class TimBox extends JavaPlugin {
         this.getCommand("bed").setExecutor(new BedCommandExecutor(this));
         this.getCommand("back").setExecutor(new BackCommandExecutor(this));
         this.getCommand("fly").setExecutor(new FlyCommandExecutor(this));
+        
+        new CustomRecipeLoader().loadRecipes(getServer());
     }
 	
     @Override
