@@ -24,6 +24,7 @@ public class CustomRecipeLoader {
 		server.addRecipe(r);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void loadClay(Server server) {
 		ItemStack clay = new ItemStack(Material.CLAY, 3);
 		
@@ -32,6 +33,28 @@ public class CustomRecipeLoader {
 		r.setIngredient('S', Material.SAND);
 		r.setIngredient('G', Material.GRAVEL);
 		r.setIngredient('D', Material.DIRT);
+		
+		server.addRecipe(r);
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void loadGoldBlock(Server server) {
+		ItemStack goldBlock = new ItemStack(Material.GOLD_BLOCK);
+		
+		ShapedRecipe r = new ShapedRecipe(goldBlock);
+		r.shape("   ", "II ", "II ");
+		r.setIngredient('I', Material.IRON_BLOCK);
+		
+		server.addRecipe(r);
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void loadDiamondBlock(Server server) {
+		ItemStack diamondBlock = new ItemStack(Material.DIAMOND_BLOCK);
+		
+		ShapedRecipe r = new ShapedRecipe(diamondBlock);
+		r.shape("   ", "GG ", "GG ");
+		r.setIngredient('G', Material.GOLD_BLOCK);
 		
 		server.addRecipe(r);
 	}
