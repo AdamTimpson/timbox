@@ -10,6 +10,9 @@ public class CustomRecipeLoader {
 	public void loadRecipes(Server server) {
 		loadSaddle(server);
 		loadClay(server);
+		loadGoldBlock(server);
+		loadDiamondBlock(server);
+		loadNameTag(server);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -55,6 +58,19 @@ public class CustomRecipeLoader {
 		ShapedRecipe r = new ShapedRecipe(diamondBlock);
 		r.shape("   ", "GG ", "GG ");
 		r.setIngredient('G', Material.GOLD_BLOCK);
+		
+		server.addRecipe(r);
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void loadNameTag(Server server) {
+		ItemStack nameTag = new ItemStack(Material.NAME_TAG);
+		
+		ShapedRecipe r = new ShapedRecipe(nameTag);
+		r.shape("SSS", " G ", " P ");
+		r.setIngredient('S', Material.STRING);
+		r.setIngredient('G', Material.GOLD_INGOT);
+		r.setIngredient('P', Material.PAPER);
 		
 		server.addRecipe(r);
 	}
